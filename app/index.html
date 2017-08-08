@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <title>Where is my Book?</title>
+    <link rel="stylesheet" href="app.css">
+  </head>
+
+  <body>
+    <div ng-app="myApp">
+      <div ng-controller="accueilCtrl">
+        <ul class="menu">
+          <li><a href="#/">Accueil</a></li>
+          <li><a href="#/view1">view1</a></li>
+        </ul>
+
+        <div ng-view></div>
+      </div>
+    </div>
+    
+
+    <!-- ANGULARJS -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+   
+    <!-- IMPORTS -->
+    <script src="app.module.js"></script>
+    <script src="app.config.js"></script>
+    <script src="controllers/accueilCtrl.js"></script>
+    <script src="controllers/view1Ctrl.js"></script>
+
+
+    <script src="components/version/version-directive.js"></script>
+  </body>
+</html>
