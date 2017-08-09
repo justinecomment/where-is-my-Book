@@ -1,6 +1,6 @@
 {
   "name": "whereIsMyBook",
-  "description": "Application AngularJS afin de savoir à quelle personne j'ai prété mon livre.",
+  "description": "Application AngularJS afin de savoir à quelle personne j'ai prêté mon livre.",
   "version": "0.0.0",
   "homepage": "https://github.com/justinecomment/where-is-my-book.git",
   "license": "MIT",

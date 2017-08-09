@@ -4,9 +4,13 @@ myApp.config(['$routeProvider', function ($routeProvider) {
     controller: 'accueilCtrl',
     templateUrl: 'views/accueil.html'
   })
-  .when('/view1', {
-    controller: 'View1Ctrl',
-    templateUrl: 'views/view1.html'
+  .when('/books', {
+    controller: 'booksCtrl',
+    templateUrl: 'views/books.html'
+  })
+  .when('/addBook', {
+    controller: 'addBookCtrl',
+    templateUrl: 'views/addBook.html'
   })
    .otherwise({
     redirectTo: '/'

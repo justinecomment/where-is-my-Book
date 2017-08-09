@@ -1,0 +1,42 @@
+<div class="content">
+    <p>add book</p>
+    
+    <form name="addBookForm" ng-submit="submitAddBook()" novalidate>
+       <div class="textField">
+            <lx-text-field lx-label="Titre" lx-focus="true">
+                <input type="text" ng-model="title" id="title" required>
+            </lx-text-field>
+            <span ng-if="addBookForm.$submitted" ng-show="addBookForm.$valid == false" class="error">Le Titre est requis</span><br>
+
+
+            <lx-text-field lx-label="Titre Original" lx-focus="true">
+                <input type="text" ng-model="$scope.titleOriginal" id="titleOriginal">
+            </lx-text-field>
+
+            <lx-text-field lx-label="Année" lx-focus="true">
+                <input type="text" ng-model="$scope.year" id="year">
+            </lx-text-field>
+
+            <lx-text-field lx-label="Format" lx-focus="true">
+                <input type="text" ng-model="$scope.format" id="format">
+            </lx-text-field>
+
+            <lx-text-field lx-label="Auteur" lx-focus="true">
+                <input type="text" ng-model="$scope.author" id="author">
+            </lx-text-field>
+            <span ng-if="addBookForm.$submitted" ng-show="addBookForm.$valid == false" class="error">L'Auteur est requis</span><br>
+
+            
+            <lx-text-field lx-label="Langue" lx-focus="true">
+                <input type="text" ng-model="$scope.language" id="language">
+            </lx-text-field>
+
+            <lx-text-field lx-label="ISBN" lx-focus="true">
+                <input type="text" ng-model="$scope.isbn" id="isbn">
+            </lx-text-field>
+
+       </div>
+        <lx-button lx-type="raised" type="submit">Ajouter</lx-button>
+  </form>
+
+</div>

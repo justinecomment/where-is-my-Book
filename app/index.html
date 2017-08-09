@@ -3,23 +3,32 @@
   <head>
     <meta charset="utf-8">
     <title>Where is my Book?</title>
-    <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="res/app.css">
   </head>
 
   <body>
     <div ng-app="myApp">
       <div ng-controller="accueilCtrl">
-        <ul class="menu">
-          <li><a href="#/">Accueil</a></li>
-          <li><a href="#/view1">view1</a></li>
-        </ul>
-
-        <div ng-view></div>
+          <nav class="navbar navbar-default">
+              <div class="container-fluid">
+                  <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Where is my Book?</a>
+                  </div>
+                  <ul class="nav navbar-nav">
+                    <li><a href="#/">Accueil</a></li>
+                    <li><a href="#/books">Mes Livres</a></li>
+                  </ul>
+              </div>
+          </nav>
+          <div ng-view></div>
       </div>
     </div>
-    
 
+    
     <!-- ANGULARJS -->
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
 
@@ -29,12 +38,12 @@
     <link rel="stylesheet" href="bower_components/lumx/dist/lumx.css">
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
     <script src="bower_components/lumx/dist/lumx.js"></script>
-    <!---->
    
     <!-- IMPORTS -->
     <script src="app.module.js"></script>
     <script src="app.config.js"></script>
     <script src="controllers/accueilCtrl.js"></script>
-    <script src="controllers/view1Ctrl.js"></script>
+    <script src="controllers/booksCtrl.js"></script>
+    <script src="controllers/addBookCtrl.js"></script>
   </body>
 </html>
