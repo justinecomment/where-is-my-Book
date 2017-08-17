@@ -13,6 +13,7 @@ myApp.controller('addBookCtrl', function($scope, booksService, $location) {
             } 
             console.log(formData);
             booksService.postBook(formData);
+            booksService.getBooks();
             $location.path('/books');
        }
        else{

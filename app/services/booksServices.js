@@ -12,4 +12,11 @@ myApp.service('booksService', function($http){
             }
         });
     };
+
+    this.getBooks = function(){
+         return $http.get(baseUrl + '/books.php').success(function(result){
+            console.log(result.data);
+            return result.data;
+        })
+    };
 });

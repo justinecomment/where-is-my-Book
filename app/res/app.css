@@ -35,3 +35,17 @@ margin-top: -15px;
     width: 200px;
     margin-top: 15px;
 }
+
+.table{
+    margin-top: 80px !important;
+    width: 900px;
+}
+
+td, th{
+    padding: 0px 40px !important;
+    text-align: left;
+}
+
+th{
+    padding: 20px 39px!important;
+}

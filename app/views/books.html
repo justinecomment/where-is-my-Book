@@ -5,5 +5,31 @@
  </a>
 
 <div class="content">
-    <p>Mes Livres</p>
+    <h1>Mes Livres</h1>
+
+    <table class="content table-hover table">
+        <tr>
+            <th>Titre</th>
+            <th>Auteur</th>
+            <th>Isbn</th>
+            <th></th>
+            <th></th>
+     
+        </tr>
+        <tr ng-repeat="booksList in booksLists">
+            <td>{{booksList.title}}</td>
+            <td>{{booksList.author}}</td>
+            <td>{{booksList.isbn}}</td>
+            <td>
+                <lx-icon lx-id="pencil" lx-size="xs" lx-color="blue" lx-type="flat"></lx-icon>
+            </td>
+            <td>
+                <lx-icon lx-id="delete" lx-size="xs" lx-color="blue" lx-type="flat" id="delete"></lx-icon>
+            </td>
+    </table>
+
+
+
+
+  
 </div>
