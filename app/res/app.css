@@ -22,3 +22,16 @@ html, body {
 .error{
     color: red;
 }
+
+.text-field{
+margin-top: -15px;
+}
+
+.btnSaveBook{
+    margin-top: 30px !important;
+}
+
+.select{
+    width: 200px;
+    margin-top: 15px;
+}

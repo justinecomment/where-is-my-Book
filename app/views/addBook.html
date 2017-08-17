@@ -1,42 +1,55 @@
 <div class="content">
-    <p>add book</p>
     
     <form name="addBookForm" ng-submit="submitAddBook()" novalidate>
        <div class="textField">
-            <lx-text-field lx-label="Titre" lx-focus="true">
-                <input type="text" ng-model="title" id="title" required>
+            <lx-text-field lx-label="* Titre" lx-focus="true" lx-error="addBookForm.$submitted && addBookForm.title.$pristine && addBookForm.title.$error.required">
+                <input type="text" ng-model="title" id="title" name="title" required />
             </lx-text-field>
-            <span ng-if="addBookForm.$submitted" ng-show="addBookForm.$valid == false" class="error">Le Titre est requis</span><br>
+            <span ng-if="addBookForm.$submitted" ng-show="addBookForm.title.$pristine || addBookForm.title.$error.required" class="error">Le Titre est requis</span><br>
 
-
-            <lx-text-field lx-label="Titre Original" lx-focus="true">
-                <input type="text" ng-model="$scope.titleOriginal" id="titleOriginal">
-            </lx-text-field>
-
-            <lx-text-field lx-label="Année" lx-focus="true">
-                <input type="text" ng-model="$scope.year" id="year">
+            <lx-text-field lx-label="Titre Original">
+                <input type="text" ng-model="titleOriginal" id="titleOriginal" name="titleOriginal"/>
             </lx-text-field>
 
-            <lx-text-field lx-label="Format" lx-focus="true">
-                <input type="text" ng-model="$scope.format" id="format">
+            <lx-text-field lx-label="Année">
+                <input type="text" ng-model="year" id="year" name="year" ng-pattern="/^[0-9]{1,4}$/" />
+            </lx-text-field>
+            <span ng-show="addBookForm.year.$dirty && addBookForm.year.$error.pattern" class="error">Fomat date : YYYY.</span>
+
+            <lx-text-field lx-label="genre">
+                <input type="text" ng-model="genre" id="genre" name="genre" />
             </lx-text-field>
 
-            <lx-text-field lx-label="Auteur" lx-focus="true">
-                <input type="text" ng-model="$scope.author" id="author">
-            </lx-text-field>
-            <span ng-if="addBookForm.$submitted" ng-show="addBookForm.$valid == false" class="error">L'Auteur est requis</span><br>
 
-            
-            <lx-text-field lx-label="Langue" lx-focus="true">
-                <input type="text" ng-model="$scope.language" id="language">
+            <lx-text-field lx-label="* Auteur" lx-error="addBookForm.$submitted && addBookForm.author.$pristine && addBookForm.author.$error.required">
+                <input type="text" ng-model="author" id="author" name="author" required>
             </lx-text-field>
+            <span ng-if="addBookForm.$submitted" ng-show="addBookForm.author.$pristine || addBookForm.author.$error.required" class="error">L'Auteur est requis</span><br>
 
-            <lx-text-field lx-label="ISBN" lx-focus="true">
-                <input type="text" ng-model="$scope.isbn" id="isbn">
+            <lx-text-field lx-label="* ISBN" lx-error="addBookForm.$submitted && addBookForm.isbn.$pristine && addBookForm.isbn.$error.required">
+                <input type="text" ng-model="isbn" id="isbn" name="isbn" ng-pattern="/^[0-9]{1,9}$/" required />
             </lx-text-field>
+            <span ng-show="addBookForm.isbn.$dirty && addBookForm.isbn.$error.pattern" class="error">Only Numbers, Maximum 10 Characters.</span>
+            <span ng-if="addBookForm.$submitted" ng-show="addBookForm.isbn.$pristine || addBookForm.isbn.$error.required" class="error">L'ISBN est requis</span><br>
 
+            <select class="select" id="format">
+                <option value="Format" selected disabled>Format</option>
+                <option value="Poche">Poche</option>
+                <option value="Roman">Roman</option>
+                <option value="BD">BD</option>
+                <option value="Autre">Autre</option>
+            </select>
+
+            <select class="select" id="language">
+                <option value="Language" selected disabled>Language</option>
+                <option value="FR">FR</option>
+                <option value="EN">EN</option>
+                <option value="IT">IT</option>
+                <option value="Autre">Autre</option>
+            </select>
        </div>
-        <lx-button lx-type="raised" type="submit">Ajouter</lx-button>
+
+        <lx-button lx-type="raised" type="submit" class="btnSaveBook">Ajouter un Livre</lx-button>
   </form>
 
 </div>
