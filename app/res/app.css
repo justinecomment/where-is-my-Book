@@ -15,7 +15,7 @@ html, body {
 }
 
 .textField{
-    width: 200px;
+    width: 300px;
     margin: 0 auto;
 }
 
@@ -23,16 +23,14 @@ html, body {
     color: red;
 }
 
-.text-field{
-margin-top: -15px;
-}
 
-.btnSaveBook{
-    margin-top: 30px !important;
+
+.btnSaveBook, .btnSaveAuthor{
+    margin-top: 40px !important;
 }
 
 .select{
-    width: 200px;
+    width: 300px;
     margin-top: 15px;
 }
 
@@ -48,4 +46,9 @@ td, th{
 
 th{
     padding: 20px 39px!important;
+}
+
+.formAuthors{
+    width: 300px;
+    margin: 0 auto;
 }

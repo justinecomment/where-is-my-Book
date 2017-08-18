@@ -6,15 +6,19 @@ myApp.config(['$routeProvider', function ($routeProvider) {
   })
   .when('/books', {
     controller: 'booksCtrl',
-    templateUrl: 'views/books.html'
+    templateUrl: 'views/books/books.html'
   })
   .when('/addBook', {
     controller: 'addBookCtrl',
-    templateUrl: 'views/addBook.html'
+    templateUrl: 'views/books/addBook.html'
   })
   .when('/authors', {
     controller: 'authorsCtrl',
-    templateUrl: 'views/authors.html'
+    templateUrl: 'views/authors/authors.html'
+  })
+  .when('/addAuthor', {
+    controller: 'addAuthorCtrl',
+    templateUrl: 'views/authors/addAuthor.html'
   })
    .otherwise({
     redirectTo: '/'

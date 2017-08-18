@@ -1,0 +1,31 @@
+<div class="content">
+
+    <form name="addAuthorForm" ng-submit="submitAddAuthorForm()" novalidate>
+       <div class="formAuthors">
+            <lx-text-field lx-label="Nom" lx-focus="true" lx-error="addAuthorForm.$submitted && addAuthorForm.nom.$pristine && addAuthorForm.nom.$error.required">
+                <input type="text" ng-model="nom" id="nom" name="nom" required />
+            </lx-text-field>
+            <span ng-if="addAuthorForm.$submitted" ng-show="addBooaddAuthorFormkForm.nom.$pristine || addAuthorForm.nom.$error.required" class="error">Le nom est requis</span><br>
+
+            <lx-text-field lx-label="Prenom" lx-error="addAuthorForm.$submitted && addAuthorForm.prenom.$pristine && addAuthorForm.prenom.$error.required">
+                <input type="text" ng-model="prenom" id="prenom" name="prenom" required />
+            </lx-text-field>
+            <span ng-if="addAuthorForm.$submitted" ng-show="addAuthorForm.prenom.$pristine || addAuthorForm.prenom.$error.required" class="error">Le prenom est requis</span><br>
+
+            <lx-text-field lx-label="Nationalité" lx-error="addAuthorForm.$submitted && addAuthorForm.nationalite.$pristine && addAuthorForm.nationalite.$error.required">
+                <input type="text" ng-model="nationalite" id="nationalite" name="nationalite" required />
+            </lx-text-field>
+            <span ng-if="addAuthorForm.$submitted" ng-show="addAuthorForm.nationalite.$pristine || addAuthorForm.nationalite.$error.required" class="error">Le nationalite est requise</span><br>
+
+<div class="p+">
+            <lx-switch ng-model="vivant" lx-color="blue">Vivant ?</lx-switch>
+</div>
+
+            <lx-button lx-type="raised" type="submit" class="btnSaveAuthor">Ajouter un Auteur</lx-button>
+            <a href="#/authors">
+                <lx-button lx-type="flat8" class="btnSaveBook" lx-color="orange">Cancel</lx-button>
+            </a>
+       </div>
+    </form>
+
+</div>
