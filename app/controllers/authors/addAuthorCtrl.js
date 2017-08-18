@@ -1,10 +1,9 @@
-myApp.controller('addAuthorCtrl', function($scope) {
+myApp.controller('addAuthorCtrl', function($scope, authorsService, $location) {
 
     $scope.vivant = null;
     if($scope.vivant === null){
         $scope.vivant = false;
     };
-
 
     $scope.submitAddAuthorForm = function(){
         if($scope.addAuthorForm.$valid === true){
@@ -14,7 +13,9 @@ myApp.controller('addAuthorCtrl', function($scope) {
                     'nationalite': document.getElementById("nationalite").value,
                     'vivant': $scope.vivant
                 } 
-                console.log(formData);
+                authorsService.postAuthor(formData);
+                authorsService.getAuthors();
+                $location.path('/authors');
         }
         else{
             console.log('error');

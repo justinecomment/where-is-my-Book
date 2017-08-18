@@ -6,4 +6,27 @@
 
 <div class="content">
     <h1>Mes Auteurs</h1>
+    <table class="content table-hover table">
+        <tr>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Nationalite</th>
+            <th>Vivant ?</th>
+            <th></th>
+            <th></th>
+     
+        </tr>
+        <tr ng-repeat="authorsList in authorsLists">
+            <td>{{authorsList.nom}}</td>
+            <td>{{authorsList.prenom}}</td>
+            <td>{{authorsList.nationalite}}</td>
+            <td>{{authorsList.vivant ? "Oui":"Non"}}</td>
+            <td>
+                <lx-icon lx-id="pencil" lx-size="xs" lx-color="blue" lx-type="flat"></lx-icon>
+            </td>
+            <td ng-click="deleteAuthor()">
+                <lx-icon lx-id="delete" lx-size="xs" lx-color="blue" lx-type="flat" id="delete"></lx-icon>
+            </td>
+    </table>
+
 </div>
