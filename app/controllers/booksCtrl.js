@@ -4,8 +4,7 @@ myApp.controller('booksCtrl', function($scope, booksService) {
 
     booksService.getBooks().then(function(result){
         $scope.booksLists = result.data;
-        console.log($scope.booksList);
-    })
+    });
 
 
 });
