@@ -18,4 +18,14 @@ myApp.service('authorsService', function($http){
             return result.data;
         })
     };
+
+    this.deleteAuthor = function(index){
+        return $http({
+            method  : 'DELETE',
+            url: baseUrl + '/authors.php?id=' + index,
+            data    : {"id":  index },
+            headers : {'Content-Type': 'application/x-www-form-urlencoded'}
+        })
+    };
+    
 });
