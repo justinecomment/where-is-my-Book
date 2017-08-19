@@ -29,4 +29,8 @@ myApp.controller('authorsCtrl', function($scope, authorsService, $location, LxNo
 
     };
 
+    $scope.editAuthor = function(){
+       authorsService.saveAuthor(this.authorsList);
+    };
+
 });

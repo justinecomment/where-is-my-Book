@@ -53,6 +53,6 @@ th{
     margin: 0 auto;
 }
 
-#delete{
+#delete, #edit{
     cursor: pointer;
 }

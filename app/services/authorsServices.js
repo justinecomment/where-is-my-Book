@@ -1,5 +1,15 @@
 myApp.service('authorsService', function($http){
     const baseUrl = 'http://localhost/whereIsMyBook';
+    var authorSaved;
+
+
+    this.saveAuthor= function(author){
+       return authorSaved = author;
+    };
+
+    this.getAuthorSaved = function(){
+        return authorSaved;
+    };
 
     this.postAuthor = function(dataToPost){
         return $http({ 
@@ -28,5 +38,17 @@ myApp.service('authorsService', function($http){
             headers : {'Content-Type': 'application/x-www-form-urlencoded'}
         })
     };
+
+    this.editAuthor= function(formData){
+         return $http({
+            method : 'PUT',
+            url : baseUrl + '/authors.php?edit=',
+            dataType: 'json',
+            data : formData,
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+    }
 
 });

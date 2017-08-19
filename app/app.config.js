@@ -20,6 +20,10 @@ myApp.config(['$routeProvider', function ($routeProvider) {
     controller: 'addAuthorCtrl',
     templateUrl: 'views/authors/addAuthor.html'
   })
+   .when('/editAuthor', {
+    controller: 'editAuthorCtrl',
+    templateUrl: 'views/authors/editAuthor.html'
+  })
    .otherwise({
     redirectTo: '/'
   });

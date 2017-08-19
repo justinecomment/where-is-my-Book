@@ -23,8 +23,10 @@
             <td>{{authorsList.prenom}}</td>
             <td>{{authorsList.nationalite}}</td>
             <td>{{authorsList.vivant ? "Oui":"Non"}}</td>
-            <td>
-                <lx-icon lx-id="pencil" lx-size="xs" lx-color="blue" lx-type="flat"></lx-icon>
+            <td ng-click="editAuthor()">
+                <a href="#/editAuthor">
+                    <lx-icon lx-id="pencil" lx-size="xs" lx-color="blue" lx-type="flat" id="edit"></lx-icon>
+                </a>
             </td>
             <td ng-click="deleteAuthor()">
                 <lx-icon lx-id="delete" lx-size="xs" lx-color="blue" lx-type="flat" id="delete"></lx-icon>

@@ -1,0 +1,31 @@
+<div class="content">
+
+    <form name="editAuthorForm" ng-submit="editAuthor()" novalidate>
+       <div class="formAuthors">
+            <lx-text-field lx-label="Nom" lx-focus="true" lx-error="editAuthorForm.$submitted && editAuthorForm.nom.$error.required">
+                <input type="text" ng-model="authorSaved.nom" name="nom" id="nom" required />
+            </lx-text-field>
+            <span ng-if="editAuthorForm.$submitted" ng-show="editAuthorForm.nom.$error.required" class="error">Le nom est requis</span><br>
+
+            <lx-text-field lx-label="Prenom" lx-allow-clear="true" lx-error="editAuthorForm.$submitted && editAuthorForm.prenom.$error.required">
+                <input type="text" ng-model="authorSaved.prenom" name="prenom" id="prenom" required />
+            </lx-text-field>
+            <span ng-if="editAuthorForm.$submitted" ng-show="editAuthorForm.prenom.$error.required" class="error">Le prenom est requis</span><br>
+
+            <lx-text-field lx-label="Nationalité" lx-error="editAuthorForm.$submitted && editAuthorForm.nationalite.$error.required">
+                <input type="text" ng-model="authorSaved.nationalite" name="nationalite" id="nationalite" required />
+            </lx-text-field>
+            <span ng-if="editAuthorForm.$submitted" ng-show="editAuthorForm.nationalite.$error.required" class="error">Le nationalite est requise</span><br>
+
+            <div class="p+">
+                <lx-switch ng-model="authorSaved.vivant" lx-color="blue">Vivant ?</lx-switch>
+            </div>
+
+            <lx-button lx-type="raised" type="submit" class="btnSaveAuthor">Editer</lx-button>
+            <a href="#/authors">
+                <lx-button lx-type="flat8" class="btnSaveBook" lx-color="orange">Cancel</lx-button>
+            </a>
+       </div>
+    </form>
+
+</div>
