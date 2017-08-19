@@ -15,7 +15,8 @@ myApp.service('authorsService', function($http){
 
     this.getAuthors = function(){
          return $http.get(baseUrl + '/authors.php').success(function(result){
-            return result.data;
+            JSON.stringify(result);
+            return result;
         })
     };
 
@@ -27,5 +28,5 @@ myApp.service('authorsService', function($http){
             headers : {'Content-Type': 'application/x-www-form-urlencoded'}
         })
     };
-    
+
 });
