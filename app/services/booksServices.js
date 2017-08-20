@@ -18,4 +18,15 @@ myApp.service('booksService', function($http){
             return result.data;
         })
     };
+
+     this.deleteBook = function(index){
+        return $http({
+            method  : 'DELETE',
+            url: baseUrl + '/books.php?id=' + index,
+            data    : {"id":  index },
+            headers : {'Content-Type': 'application/x-www-form-urlencoded'}
+        })
+    };
+
+
 });

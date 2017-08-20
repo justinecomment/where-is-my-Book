@@ -9,7 +9,7 @@ myApp.controller('authorsCtrl', function($scope, authorsService, $location, LxNo
     $scope.deleteAuthor = function(){
        var index = this.authorsList.id;
        
-        LxNotificationService.confirm('', 'Voulez-vous Editer ou supprimer?',
+        LxNotificationService.confirm('', 'Voulez-vous vraiment supprimer?',
                 {
                    cancel: 'Supprimer',
                    ok    : 'Cancel'

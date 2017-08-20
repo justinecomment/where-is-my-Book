@@ -18,7 +18,6 @@ myApp.controller('editAuthorCtrl', function($scope, authorsService, $location, L
                     'nationalite': document.getElementById("nationalite").value,
                     'vivant': $scope.authorSaved.vivant
                 };
-                console.log(formData);
                
                 authorsService.editAuthor(formData);
                 authorsService.getAuthors();

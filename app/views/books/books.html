@@ -1,5 +1,5 @@
  <a href="#/addBook">
-    <lx-button lx-type="fab" lx-size="xl" class="btnAddBook">
+    <lx-button lx-type="fab" lx-size="xl" class="btnAddBook" lx-ripple lx-tooltip="Ajouter un Livre" lx-tooltip-position="bottom">
         <i class="mdi mdi-plus"></i>
     </lx-button>
  </a>
@@ -9,6 +9,7 @@
 
     <table class="content table-hover table">
         <tr>
+            <th hidden>id</th>
             <th>Titre</th>
             <th>Auteur</th>
             <th>Isbn</th>
@@ -17,18 +18,21 @@
      
         </tr>
         <tr ng-repeat="booksList in booksLists">
+            <td hidden>{{booksList.id}}</td>
             <td>{{booksList.title}}</td>
             <td>{{booksList.author}}</td>
             <td>{{booksList.isbn}}</td>
-            <td>
+            <td ng-click="editBook()">
+                <a href="#" lx-ripple lx-tooltip="Editer" lx-tooltip-position="right">
                 <lx-icon lx-id="pencil" lx-size="xs" lx-color="blue" lx-type="flat"></lx-icon>
+                </a>
             </td>
             <td ng-click="deleteBook()">
-                <lx-icon lx-id="delete" lx-size="xs" lx-color="blue" lx-type="flat" id="delete"></lx-icon>
+                <div lx-ripple lx-tooltip="Supprimer" lx-tooltip-position="right">
+                    <lx-icon lx-id="delete" lx-size="xs" lx-color="blue" lx-type="flat" id="delete"></lx-icon>
+                </div>
             </td>
     </table>
-
-
 
 
   

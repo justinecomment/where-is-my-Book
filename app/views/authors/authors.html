@@ -1,5 +1,5 @@
 <a href="#/addAuthor">
-    <lx-button lx-type="fab" lx-size="xl" class="btnAddBook">
+    <lx-button lx-type="fab" lx-size="xl" class="btnAddBook"  lx-ripple lx-tooltip="Ajouter un Auteur" lx-tooltip-position="bottom">
         <i class="mdi mdi-plus"></i>
     </lx-button>
 </a>
@@ -24,12 +24,14 @@
             <td>{{authorsList.nationalite}}</td>
             <td>{{authorsList.vivant ? "Oui":"Non"}}</td>
             <td ng-click="editAuthor()">
-                <a href="#/editAuthor">
-                    <lx-icon lx-id="pencil" lx-size="xs" lx-color="blue" lx-type="flat" id="edit"></lx-icon>
+                <a href="#/editAuthor" lx-ripple lx-tooltip="Editer" lx-tooltip-position="right">
+                    <lx-icon lx-id="pencil" lx-size="xs" lx-color="blue" lx-type="flat" id="edit" ></lx-icon>
                 </a>
             </td>
             <td ng-click="deleteAuthor()">
-                <lx-icon lx-id="delete" lx-size="xs" lx-color="blue" lx-type="flat" id="delete"></lx-icon>
+                <div lx-ripple lx-tooltip="Supprimer" lx-tooltip-position="right">
+                    <lx-icon lx-id="delete" lx-size="xs" lx-color="blue" lx-type="flat" id="delete"></lx-icon>
+                </div>
             </td>
     </table>
 
