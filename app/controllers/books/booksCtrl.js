@@ -28,5 +28,8 @@ myApp.controller('booksCtrl', function($scope, booksService, LxNotificationServi
         });
     }
 
+    $scope.editBook = function(){
+      booksService.saveBook(this.booksList);
+    }
 
 });

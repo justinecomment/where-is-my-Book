@@ -1,0 +1,58 @@
+<div class="content">
+    
+    <form name="editBookForm" ng-submit="editBook()" novalidate>
+       <div class="textField">
+            <lx-text-field lx-label="* Titre" lx-focus="true" lx-error="editBookForm.$submitted && editBookForm.title.$error.required">
+                <input type="text" ng-model="bookSaved.title" id="title" name="title" required />
+            </lx-text-field>
+            <span ng-if="editBookForm.$submitted" ng-show="editBookForm.title.$error.required" class="error">Le Titre est requis</span><br>
+
+            <lx-text-field lx-label="Titre Original">
+                <input type="text" ng-model="bookSaved.titleOriginal" id="titleOriginal" name="titleOriginal"/>
+            </lx-text-field> 
+
+            <lx-text-field lx-label="Année">
+                <input type="text" ng-model="bookSaved.year" id="year" name="year" ng-pattern="/^[0-9]{1,4}$/" />
+            </lx-text-field>
+            <span ng-show="editBookForm.year.$dirty && editBookForm.year.$error.pattern" class="error">Fomat date : YYYY.</span>
+
+            <lx-text-field lx-label="genre">
+                <input type="text" ng-model="bookSaved.genre" id="genre" name="genre" />
+            </lx-text-field>
+
+
+            <lx-text-field lx-label="* Auteur" lx-error="editBookForm.$submitted && editBookForm.author.$error.required">
+                <input type="text" ng-model="bookSaved.author" id="author" name="author" required>
+            </lx-text-field>
+            <span ng-if="editBookForm.$submitted" ng-show="editBookForm.author.$error.required" class="error">L'Auteur est requis</span><br>
+
+            <lx-text-field lx-label="* ISBN" lx-error="editBookForm.$submitted && editBookForm.isbn.$error.required">
+                <input type="text" ng-model="bookSaved.isbn" id="isbn" name="isbn" ng-pattern="/^[0-9]{1,9}$/" required />
+            </lx-text-field>
+            <span ng-show="editBookForm.isbn.$dirty && editBookForm.isbn.$error.pattern" class="error">Only Numbers, Maximum 10 Characters.</span>
+            <span ng-if="editBookForm.$submitted" ng-show="editBookForm.isbn.$error.required" class="error">L'ISBN est requis</span><br>
+
+            <select class="select" id="format" ng-model="bookSaved.format">
+                <option value="Format" selected disabled>Format</option>
+                <option value="Poche">Poche</option>
+                <option value="Roman">Roman</option>
+                <option value="BD">BD</option>
+                <option value="Autre">Autre</option>
+            </select>
+
+            <select class="select" id="language"  ng-model="bookSaved.language">
+                <option value="Language" selected disabled>Language</option>
+                <option value="FR">FR</option>
+                <option value="EN">EN</option>
+                <option value="IT">IT</option>
+                <option value="Autre">Autre</option>
+            </select>
+       </div>
+
+        <lx-button lx-type="raised" type="submit" class="btnSaveBook">Editer</lx-button>
+        <a href="#/books">
+            <lx-button lx-type="flat8" class="btnSaveBook" lx-color="orange">Cancel</lx-button>
+        </a>
+  </form>
+
+</div>

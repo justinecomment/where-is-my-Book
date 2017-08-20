@@ -1,5 +1,14 @@
 myApp.service('booksService', function($http){
     const baseUrl = 'http://localhost/whereIsMyBook';
+    var bookSaved;
+
+    this.saveBook= function(book){
+       return bookSaved = book;
+    };
+
+    this.getBookSaved = function(){
+        return bookSaved;
+    };
 
     this.postBook = function(dataToPost){
         return $http({ 
@@ -25,6 +34,18 @@ myApp.service('booksService', function($http){
             url: baseUrl + '/books.php?id=' + index,
             data    : {"id":  index },
             headers : {'Content-Type': 'application/x-www-form-urlencoded'}
+        })
+    };
+
+    this.editBook= function(formData){
+         return $http({
+            method : 'PUT',
+            url : baseUrl + '/books.php?edit=',
+            dataType: 'json',
+            data : formData,
+            headers: {
+                'Content-Type': 'application/json'
+            }
         })
     };
 

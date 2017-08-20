@@ -12,6 +12,10 @@ myApp.config(['$routeProvider', function ($routeProvider) {
     controller: 'addBookCtrl',
     templateUrl: 'views/books/addBook.html'
   })
+  .when('/editBook', {
+    controller: 'editBookCtrl',
+    templateUrl: 'views/books/editBook.html'
+  })
   .when('/authors', {
     controller: 'authorsCtrl',
     templateUrl: 'views/authors/authors.html'
