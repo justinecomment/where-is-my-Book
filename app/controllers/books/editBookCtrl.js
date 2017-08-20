@@ -16,7 +16,11 @@ myApp.controller('editBookCtrl', function($scope, booksService, $location, LxNot
                     'language': document.getElementById("language").value
                 };
 
-                booksService.editBook(formData);
+                booksService.editBook(formData).then(function(result){
+                   booksService.getBooks().then(function(result){
+                        $scope.booksLists = result.data;
+                    })
+                });               
                 booksService.getBooks();
                 $location.path('/books');
                 LxNotificationService.notify('Livre modifié', undefined, undefined, undefined, undefined, undefined, 2 * 1000);

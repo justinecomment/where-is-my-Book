@@ -1,4 +1,5 @@
-myApp.controller('addBookCtrl', function($scope, booksService, $location) {
+myApp.controller('addBookCtrl', function($scope, booksService, authorsService, $location, LxNotificationService) {
+   
     $scope.submitAddBook = function(){
        if($scope.addBookForm.$valid === true){
             var formData = {
@@ -11,16 +12,24 @@ myApp.controller('addBookCtrl', function($scope, booksService, $location) {
                 'language': document.getElementById("language").value,
                 'isbn': document.getElementById("isbn").value,
             } 
-            console.log(formData);
-            booksService.postBook(formData);
+            booksService.postBook(formData).then(function(result){
+                booksService.getBooks().then(function(result){
+                    $scope.booksLists = result.data;
+                })
+            })
             booksService.getBooks();
             $location.path('/books');
+            LxNotificationService.notify('Livre Ajouté', undefined, undefined, undefined, undefined, undefined, 2 * 1000);
        }
        else{
            console.log('error');
            $scope.addBookForm.$valid = false;
        }
-        
-    }
+    };
+
+    authorsService.getAuthors().then(function(result){
+        $scope.authorsLists = result.data;
+    });
+
 
 });
