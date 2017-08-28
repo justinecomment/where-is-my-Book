@@ -20,17 +20,17 @@
                 <input type="text" ng-model="bookSaved.genre" id="genre" name="genre" />
             </lx-text-field>
 
-
-            <lx-text-field lx-label="* Auteur" lx-error="editBookForm.$submitted && editBookForm.author.$error.required">
-                <input type="text" ng-model="bookSaved.author" id="author" name="author" required>
-            </lx-text-field>
-            <span ng-if="editBookForm.$submitted" ng-show="editBookForm.author.$error.required" class="error">L'Auteur est requis</span><br>
-
             <lx-text-field lx-label="* ISBN" lx-error="editBookForm.$submitted && editBookForm.isbn.$error.required">
                 <input type="text" ng-model="bookSaved.isbn" id="isbn" name="isbn" ng-pattern="/^[0-9]{1,9}$/" required />
             </lx-text-field>
             <span ng-show="editBookForm.isbn.$dirty && editBookForm.isbn.$error.pattern" class="error">Only Numbers, Maximum 10 Characters.</span>
             <span ng-if="editBookForm.$submitted" ng-show="editBookForm.isbn.$error.required" class="error">L'ISBN est requis</span><br>
+
+            <select class="select" name="author" id="author" ng-model="bookSaved.author" required>
+                <option value="{{bookSaved.author}}" selected disabled>{{bookSaved.author}}</option>
+                <option value="{{authorsList.nom}} {{authorsList.prenom}}" ng-repeat="authorsList in authorsLists">{{authorsList.nom}} {{authorsList.prenom}}</option>
+            </select>
+            <span ng-if="editBookForm.$submitted" ng-show="editBookForm.author.$error.required" class="error">L'Auteur est requis</span><br>
 
             <select class="select" id="format" ng-model="bookSaved.format">
                 <option value="Format" selected disabled>Format</option>
@@ -56,3 +56,4 @@
   </form>
 
 </div>
+

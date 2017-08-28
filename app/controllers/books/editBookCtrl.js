@@ -1,6 +1,7 @@
-myApp.controller('editBookCtrl', function($scope, booksService, $location, LxNotificationService) {
+myApp.controller('editBookCtrl', function($scope, booksService, authorsService, $location, LxNotificationService) {
 
     $scope.bookSaved = booksService.getBookSaved();
+    console.log($scope.bookSaved.author)
 
     $scope.editBook = function(){
         if($scope.editBookForm.$valid === true){
@@ -30,6 +31,12 @@ myApp.controller('editBookCtrl', function($scope, booksService, $location, LxNot
             $scope.editAuthorForm.$valid = false;
         }
     };
+
+     authorsService.getAuthors().then(function(result){
+        $scope.authorsLists = result.data;
+    });
+
+
 
 });
 
