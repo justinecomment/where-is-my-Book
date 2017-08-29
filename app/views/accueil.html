@@ -1,1 +1,13 @@
-<p class="content">Accueil</p>
+<div class="content">
+
+    <table class="content table-hover table">
+        <tr>
+            <th>livre</th>
+            <th>pret</th>
+        </tr>
+        <tr ng-repeat="booksList in booksLists">
+            <td>{{booksList.title}}</td>
+            <td>{{booksList.nom }}</td>
+    </table>
+
+</div>

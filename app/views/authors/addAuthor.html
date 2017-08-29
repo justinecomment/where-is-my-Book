@@ -17,9 +17,9 @@
             </lx-text-field>
             <span ng-if="addAuthorForm.$submitted" ng-show="addAuthorForm.nationalite.$pristine || addAuthorForm.nationalite.$error.required" class="error">Le nationalite est requise</span><br>
 
-<div class="p+">
-            <lx-switch ng-model="vivant" lx-color="blue">Vivant ?</lx-switch>
-</div>
+            <div class="p+">
+                <lx-switch ng-model="vivant" lx-color="blue">Vivant ?</lx-switch>
+            </div>
 
             <lx-button lx-type="raised" type="submit" class="btnSaveAuthor">Ajouter un Auteur</lx-button>
             <a href="#/authors">

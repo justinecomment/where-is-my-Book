@@ -1,10 +1,16 @@
 myApp.controller('lendBookCtrl', function($scope, booksService) {
 
-    $scope.lendBook = function(){
+    var bookSaved = booksService.getBookSaved();
 
+    $scope.lendBook = function(){
         if($scope.lendBookForm.$valid === true){
-            var nom = { 'nom' : document.getElementById('nom').value }
-            booksService.lendBookPost(nom);
+            var formData = { 
+                'nom' : document.getElementById('nom').value,
+                'idBook' :bookSaved.id,
+            }
+            console.log(formData)
+            booksService.lendBookPost(formData);
+            booksService.lendBookPut(formData);
         }
     }
     

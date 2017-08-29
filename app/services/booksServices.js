@@ -28,6 +28,24 @@ myApp.service('booksService', function($http){
         })
     };
 
+    this.getBookLend = function(){
+         return $http.get(baseUrl + '/books.php?lend=').success(function(result){
+            return result.data;
+        })
+    }
+
+    this.lendBookPut = function(formData){
+         return $http({
+            method : 'PUT',
+            url : baseUrl + '/books.php?lendPut=',
+            dataType: 'json',
+            data : formData,
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+    };
+
      this.deleteBook = function(index){
         return $http({
             method  : 'DELETE',
