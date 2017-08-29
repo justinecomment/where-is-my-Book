@@ -13,7 +13,7 @@ myApp.service('booksService', function($http){
     this.postBook = function(dataToPost){
         return $http({ 
             method: 'POST', 
-            url: baseUrl + '/books.php', 
+            url: baseUrl + '/books.php?add_book=', 
             dataType: 'json', 
             data: dataToPost,
             headers: {
@@ -28,29 +28,26 @@ myApp.service('booksService', function($http){
         })
     };
 
-    this.getBookLend = function(){
-         return $http.get(baseUrl + '/books.php?lend=').success(function(result){
+    this.getBookPrete = function(){
+         return $http.get(baseUrl + '/books.php?book_prete=').success(function(result){
             return result.data;
         })
     }
 
-    this.lendBookPut = function(formData){
-         return $http({
-            method : 'PUT',
-            url : baseUrl + '/books.php?lendPut=',
-            dataType: 'json',
-            data : formData,
-            headers: {
-                'Content-Type': 'application/json'
-            }
+    this.rendu = function(nom_pret){
+        return $http({
+            method  : 'DELETE',
+            url: baseUrl + '/books.php?rendu=' + nom_pret,
+            data    : {"nom_pret":  nom_pret },
+            headers : {'Content-Type': 'application/x-www-form-urlencoded'}
         })
-    };
+    }
 
      this.deleteBook = function(index){
         return $http({
             method  : 'DELETE',
-            url: baseUrl + '/books.php?id=' + index,
-            data    : {"id":  index },
+            url: baseUrl + '/books.php?deleteBook=' + index,
+            data    : {"id_book":  index },
             headers : {'Content-Type': 'application/x-www-form-urlencoded'}
         })
     };
@@ -58,7 +55,7 @@ myApp.service('booksService', function($http){
     this.editBook= function(formData){
          return $http({
             method : 'PUT',
-            url : baseUrl + '/books.php?edit=',
+            url : baseUrl + '/books.php?edit_book=',
             dataType: 'json',
             data : formData,
             headers: {
@@ -67,17 +64,29 @@ myApp.service('booksService', function($http){
         })
     };
 
-    this.lendBookPost = function(dataToPost){
+    this.addPret = function(dataToPost){
         return $http({ 
             method: 'POST', 
-            url: baseUrl + '/books.php?lend=', 
+            url: baseUrl + '/books.php?add_pret=', 
             dataType: 'json', 
             data: dataToPost,
             headers: {
             'Content-Type': 'application/json'
             }
         });
-    }
+    };
+
+    this.modifyPret = function(nom, idBook){
+         return $http({
+            method : 'PUT',
+            url : baseUrl + '/books.php?modifyPret=',
+            dataType: 'json',
+            data : {'nom': nom , 'idBook': idBook},
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+    };
 
 
 });

@@ -1,4 +1,4 @@
-myApp.controller('lendBookCtrl', function($scope, booksService) {
+myApp.controller('lendBookCtrl', function($scope, booksService, $location) {
 
     var bookSaved = booksService.getBookSaved();
 
@@ -8,9 +8,13 @@ myApp.controller('lendBookCtrl', function($scope, booksService) {
                 'nom' : document.getElementById('nom').value,
                 'idBook' :bookSaved.id,
             }
-            console.log(formData)
-            booksService.lendBookPost(formData);
-            booksService.lendBookPut(formData);
+            
+            booksService.addPret(formData).then(function(result){
+               booksService.getBookPrete();
+               booksService.modifyPret(formData.nom, formData.idBook);
+            $location.path('/');
+            });
+            
         }
     }
     

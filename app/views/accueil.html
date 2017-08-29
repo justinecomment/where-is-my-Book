@@ -1,13 +1,18 @@
 <div class="content">
+    <h3>Mes prêts :</h3>
 
     <table class="content table-hover table">
         <tr>
             <th>livre</th>
             <th>pret</th>
+            <th>Rendu?</th>
         </tr>
         <tr ng-repeat="booksList in booksLists">
             <td>{{booksList.title}}</td>
             <td>{{booksList.nom }}</td>
+            <td ng-click="rendu()">
+                <button>rendu</button>
+            </td>
     </table>
 
 </div>
