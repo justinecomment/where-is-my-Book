@@ -28,6 +28,10 @@ myApp.config(['$routeProvider', function ($routeProvider) {
     controller: 'editAuthorCtrl',
     templateUrl: 'views/authors/editAuthor.html'
   })
+   .when('/lendBook', {
+    controller: 'lendBookCtrl',
+    templateUrl: 'views/books/lendBook.html'
+  })
    .otherwise({
     redirectTo: '/'
   });

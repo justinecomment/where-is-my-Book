@@ -49,5 +49,17 @@ myApp.service('booksService', function($http){
         })
     };
 
+    this.lendBookPost = function(dataToPost){
+        return $http({ 
+            method: 'POST', 
+            url: baseUrl + '/books.php?lend=', 
+            dataType: 'json', 
+            data: dataToPost,
+            headers: {
+            'Content-Type': 'application/json'
+            }
+        });
+    }
+
 
 });

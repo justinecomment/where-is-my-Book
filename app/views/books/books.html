@@ -15,6 +15,7 @@
             <th>Isbn</th>
             <th></th>
             <th></th>
+            <th></th>
      
         </tr>
         <tr ng-repeat="booksList in booksLists">
@@ -22,9 +23,15 @@
             <td>{{booksList.title}}</td>
             <td>{{booksList.author}}</td>
             <td>{{booksList.isbn}}</td>
+            <td ng-click="lendBook()">
+                <a href="#/lendBook" lx-ripple lx-tooltip="Preté?" lx-tooltip-position="right">
+                   <i class="fa fa-tags" aria-hidden="true"></i>
+                </a>
+            </td>
+           
             <td ng-click="editBook()">
                 <a href="#/editBook" lx-ripple lx-tooltip="Editer" lx-tooltip-position="right">
-                <lx-icon lx-id="pencil" lx-size="xs" lx-color="blue" lx-type="flat"></lx-icon>
+                    <lx-icon lx-id="pencil" lx-size="xs" lx-color="blue" lx-type="flat"></lx-icon>
                 </a>
             </td>
             <td ng-click="deleteBook()">

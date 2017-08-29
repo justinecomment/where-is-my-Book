@@ -1,7 +1,6 @@
 myApp.controller('editBookCtrl', function($scope, booksService, authorsService, $location, LxNotificationService) {
 
     $scope.bookSaved = booksService.getBookSaved();
-    console.log($scope.bookSaved.author)
 
     $scope.editBook = function(){
         if($scope.editBookForm.$valid === true){

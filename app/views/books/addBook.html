@@ -20,11 +20,6 @@
                 <input type="text" ng-model="genre" id="genre" name="genre" />
             </lx-text-field>
 
-            <!--<lx-text-field lx-label="* Auteur" lx-error="addBookForm.$submitted && addBookForm.author.$pristine && addBookForm.author.$error.required">
-                <input type="text" ng-model="author" id="author" name="author" required>
-            </lx-text-field>
-            <span ng-if="addBookForm.$submitted" ng-show="addBookForm.author.$pristine || addBookForm.author.$error.required" class="error">L'Auteur est requis</span><br>-->
-
             <lx-text-field lx-label="* ISBN" lx-error="addBookForm.$submitted && addBookForm.isbn.$pristine && addBookForm.isbn.$error.required">
                 <input type="text" ng-model="isbn" id="isbn" name="isbn" ng-pattern="/^[0-9]{1,9}$/" required />
             </lx-text-field>
