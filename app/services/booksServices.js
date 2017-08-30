@@ -88,5 +88,11 @@ myApp.service('booksService', function($http){
         })
     };
 
+    this.searchBook = function(searchValue){
+        return $http.get(baseUrl + '/books.php?search=' + searchValue).success(function(result){
+            return result.data;
+        })
+    }
+
 
 });

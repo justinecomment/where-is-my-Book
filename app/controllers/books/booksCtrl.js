@@ -35,4 +35,17 @@ myApp.controller('booksCtrl', function($scope, booksService, LxNotificationServi
     $scope.lendBook = function(){
         booksService.saveBook(this.booksList);
     };
+
+    $scope.searchContact = function(){
+        var stringToFind = document.getElementById('searchBar').value;
+        if(stringToFind != null){
+            booksService.searchBook(stringToFind).then(function(response){
+            $scope.booksLists = response.data})
+        }
+        else{
+            contactsService.getContacts().then(function(response) {
+                $scope.booksLists  = response.data;
+            })
+        }
+    }
 });
