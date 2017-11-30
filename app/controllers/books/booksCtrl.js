@@ -38,22 +38,29 @@ myApp.controller('booksCtrl', function($scope, booksService, LxNotificationServi
         var index = this.booksList.id;
         
         LxNotificationService.confirm('', 'Voulez-vous vraiment supprimer?',
-                {
-                   cancel: 'Supprimer',
-                   ok    : 'Cancel'
-                }, function(editer){
-                    if (editer){
-                        $location.path('/books');
-                    }
-                    else{
-                        booksService.deleteBook(index).then(function(result){
-                             booksService.getBooks().then(function(result){
-                                  $scope.booksLists = result.data;
-                             });
-                        });
-                         LxNotificationService.error('Livre supprimé');
-                    }
-        });
+            {
+               cancel   : 'Cancel',
+               ok: 'Supprimer'
+            }, function(answer){
+                if (answer){
+                    booksService.deleteBook(index).then(
+                        function(result){
+                            LxNotificationService.error('Error');
+                        },
+                        function(result){
+                            booksService.getBooks().then(function(response){
+                                $scope.booksLists = response.data;
+                            });
+                            LxNotificationService.success('Livre supprimé');
+                        }
+                    );
+                }
+                else{
+
+                     $location.path('/books');
+                };
+            }
+        );
     };
 
 
@@ -88,3 +95,4 @@ myApp.filter('startFrom', function() {
         }
     }
 });
+

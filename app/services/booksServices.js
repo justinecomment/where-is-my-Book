@@ -45,16 +45,14 @@ myApp.service('booksService', function($http){
 
      this.deleteBook = function(index){
         return $http({
-            method  : 'DELETE',
+            data : index,
             url: baseUrl + '/deleteBook/' + index,
-            data    : {"idBook":  index },
+            data    : {"id":  index },
             headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin' : '*'
+                'Access-Control-Allow-Origin' : '*',
+                'Content-Type': 'application/json'
             }
         })
-
     };
 
     // this.editBook= function(formData){
