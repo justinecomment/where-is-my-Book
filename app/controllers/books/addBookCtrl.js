@@ -15,8 +15,8 @@ myApp.controller('addBookCtrl', function($scope, booksService, authorsService, $
             booksService.postBook(formData).then(function(result){
                 booksService.getBooks().then(function(result){
                     $scope.booksLists = result.data;
-                })
-            })
+                });
+            });
             booksService.getBooks();
             $location.path('/books');
             LxNotificationService.notify('Livre Ajouté', undefined, undefined, undefined, undefined, undefined, 2 * 1000);
@@ -29,6 +29,7 @@ myApp.controller('addBookCtrl', function($scope, booksService, authorsService, $
 
     authorsService.getAuthors().then(function(result){
         $scope.authorsLists = result.data;
+        console.log($scope.authorsLists);
     });
 
 
