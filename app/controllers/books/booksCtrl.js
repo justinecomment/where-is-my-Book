@@ -56,7 +56,6 @@ myApp.controller('booksCtrl', function($scope, booksService, LxNotificationServi
                     );
                 }
                 else{
-
                      $location.path('/books');
                 };
             }

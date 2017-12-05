@@ -25,18 +25,20 @@ myApp.service('authorsService', function($http){
 
     this.getAuthors = function(){
          return $http.get(baseUrl + '/listAuthors').success(function(result){
-            console.log(result);
         })
     };
 
-    // this.deleteAuthor = function(index){
-    //     return $http({
-    //         method  : 'DELETE',
-    //         url: baseUrl + '/authors.php?id=' + index,
-    //         data    : {"id":  index },
-    //         headers : {'Content-Type': 'application/x-www-form-urlencoded'}
-    //     })
-    // };
+    this.deleteAuthor = function(index){
+        return $http({
+            method  : 'DELETE',
+            url: baseUrl + '/deleteAuthor/' + index,
+            data    : {"id":  index },
+            headers: {
+                'Access-Control-Allow-Origin' : '*',
+                'Content-Type': 'application/json'
+            }
+        })
+    };
 
     // this.editAuthor= function(formData){
     //      return $http({
