@@ -11,17 +11,17 @@ myApp.service('authorsService', function($http){
         return authorSaved;
     };
 
-    // this.postAuthor = function(dataToPost){
-    //     return $http({ 
-    //         method: 'POST', 
-    //         url: baseUrl + '/authors.php', 
-    //         dataType: 'json', 
-    //         data: dataToPost,
-    //         headers: {
-    //         'Content-Type': 'application/json'
-    //         }
-    //     });
-    // };
+    this.postAuthor = function(dataToPost){
+        return $http({ 
+            method: 'POST', 
+            url: baseUrl + '/addAuthor', 
+            dataType: 'json', 
+            data: dataToPost,
+            headers: {
+            'Content-Type': 'application/json'
+            }
+        });
+    };
 
     this.getAuthors = function(){
          return $http.get(baseUrl + '/listAuthors').success(function(result){
@@ -40,16 +40,16 @@ myApp.service('authorsService', function($http){
         })
     };
 
-    // this.editAuthor= function(formData){
-    //      return $http({
-    //         method : 'PUT',
-    //         url : baseUrl + '/authors.php?edit=',
-    //         dataType: 'json',
-    //         data : formData,
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         }
-    //     })
-    // }
+    this.editAuthor= function(formData){
+         return $http({
+            method : 'PUT',
+            url : baseUrl + '/updateAuthor/' + formData.id,
+            data : formData,
+            headers: {
+                'Access-Control-Allow-Origin' : '*',
+                'Content-Type': 'application/json'
+            }
+        })
+    }
 
 });

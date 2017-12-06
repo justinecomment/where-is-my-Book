@@ -17,13 +17,13 @@ myApp.controller('authorsCtrl', function($scope, authorsService, $location, LxNo
                 if (answer){
                     authorsService.deleteAuthor(index).then(
                         function(result){
-                            LxNotificationService.error('Error');
-                        },
-                        function(result){
                             authorsService.getAuthors().then(function(result){
                               $scope.authorsLists = result.data;
                             });
-                            LxNotificationService.success('Livre supprimé');
+                            LxNotificationService.success('Auteur supprimé');
+                        },
+                        function(result){
+                           LxNotificationService.error('Error');
                         }
                     );
                 }

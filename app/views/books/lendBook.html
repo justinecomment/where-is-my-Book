@@ -1,13 +1,14 @@
 <div class="content">
     
     <form name="lendBookForm" ng-submit="lendBook()" novalidate>
-       <div class="textField">
+        <div class="textField">
            <p>J'ai prêté mon livre à </p>
-            <lx-text-field lx-label="Nom" lx-focus="true">
-                <input type="text" ng-model="nom" id="nom" name="nom" />
-            </lx-text-field>
-            <span ng-show="lendBookForm.nom.$dirty && lendBookForm.nom.$error.pattern" class="error">Le nom est requis</span>
-       </div>
+
+           <select class="select" name="friends"  ng-model="getFriends">
+                <option value="" selected disabled>Friends</option>
+                <option ng-repeat="friends in friendsLists" value="{{friends.nom}}  {{friends.prenom}}">{{friends.nom}} {{friends.prenom}}</option>
+            </select>
+        </div>
 
         <lx-button lx-type="raised" type="submit" class="btnSaveBook">Valider</lx-button>
         <a href="#/books">

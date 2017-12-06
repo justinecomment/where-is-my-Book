@@ -32,9 +32,12 @@ myApp.config(['$routeProvider', function ($routeProvider) {
     controller: 'lendBookCtrl',
     templateUrl: 'views/books/lendBook.html'
   })
+   .when('/friends', {
+    controller: 'friendsCtrl',
+    templateUrl: 'views/friends/friends.html'
+  })
    .otherwise({
     redirectTo: '/'
   });
 }]);
-
 

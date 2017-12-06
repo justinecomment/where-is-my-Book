@@ -1,20 +1,21 @@
-myApp.controller('lendBookCtrl', function($scope, booksService, $location) {
+myApp.controller('lendBookCtrl', function($scope, booksService, $location, friendsService) {
 
     var bookSaved = booksService.getBookSaved();
+
+    friendsService.getFriends().then(function(result){
+        $scope.friendsLists = result.data;
+    });
 
     $scope.lendBook = function(){
         if($scope.lendBookForm.$valid === true){
             var formData = { 
                 'nom' : document.getElementById('nom').value,
                 'idBook' :bookSaved.id,
-            }
+            };
             
-            booksService.addPret(formData).then(function(result){
-               booksService.getBookPrete();
-               booksService.modifyPret(formData.nom, formData.idBook);
-            $location.path('/');
+            friendsService.getFriends().then(function(result){
+                $scope.friendsLists = result.data;
             });
-            
         }
     }
     

@@ -10,17 +10,17 @@ myApp.service('booksService', function($http){
         return bookSaved;
     };
 
-    // this.postBook = function(dataToPost){
-    //     return $http({ 
-    //         method: 'POST', 
-    //         url: baseUrl + '/addbook', 
-    //         dataType: 'json', 
-    //         data: dataToPost,
-    //         headers: {
-    //         'Content-Type': 'application/json'
-    //         }
-    //     });
-    // };
+    this.postBook = function(dataToPost){
+        return $http({ 
+            method: 'POST', 
+            url: baseUrl + '/addbook', 
+            dataType: 'json', 
+            data: dataToPost,
+            headers: {
+            'Content-Type': 'application/json'
+            }
+        });
+    };
 
     this.getBooks = function(){
          return $http.get(baseUrl + '/listbook').success(function(result){
@@ -28,11 +28,6 @@ myApp.service('booksService', function($http){
         })
     };
 
-    // this.getBookPrete = function(){
-    //      return $http.get(baseUrl + '/books.php?book_prete=').success(function(result){
-    //         return result.data;
-    //     })
-    // }
 
     // this.rendu = function(nom_pret){
     //     return $http({
@@ -45,7 +40,7 @@ myApp.service('booksService', function($http){
 
      this.deleteBook = function(index){
         return $http({
-            data : index,
+            method  : 'DELETE',
             url: baseUrl + '/deleteBook/' + index,
             data    : {"id":  index },
             headers: {
@@ -55,29 +50,36 @@ myApp.service('booksService', function($http){
         })
     };
 
-    // this.editBook= function(formData){
-    //      return $http({
-    //         method : 'PUT',
-    //         url : baseUrl + '/books.php?edit_book=',
-    //         dataType: 'json',
-    //         data : formData,
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         }
-    //     })
-    // };
+    this.editBook= function(formData){
+         return $http({
+            method : 'PUT',
+            url : baseUrl + '/updateBook/' + formData.id,
+            dataType: 'json',
+            data : formData,
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+    };
 
-    // this.addPret = function(dataToPost){
-    //     return $http({ 
-    //         method: 'POST', 
-    //         url: baseUrl + '/books.php?add_pret=', 
-    //         dataType: 'json', 
-    //         data: dataToPost,
-    //         headers: {
-    //         'Content-Type': 'application/json'
-    //         }
-    //     });
-    // };
+    this.addPret = function(dataToPost){
+        return $http({ 
+            method: 'POST', 
+            url: baseUrl + '/lendBook/' + dataToPost.idBook, 
+            dataType: 'json', 
+            data: dataToPost,
+            headers: {
+            'Content-Type': 'application/json'
+            }
+        });
+    };
+
+    this.getBookPrete = function(){
+         return $http.get(baseUrl + '/listLentBook').success(function(result){
+            return result.data;
+        })
+    }
+
 
     // this.modifyPret = function(nom, idBook){
     //      return $http({

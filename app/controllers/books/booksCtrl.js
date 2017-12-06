@@ -40,18 +40,18 @@ myApp.controller('booksCtrl', function($scope, booksService, LxNotificationServi
         LxNotificationService.confirm('', 'Voulez-vous vraiment supprimer?',
             {
                cancel   : 'Cancel',
-               ok: 'Supprimer'
+               ok       : 'Supprimer'
             }, function(answer){
                 if (answer){
                     booksService.deleteBook(index).then(
-                        function(result){
-                            LxNotificationService.error('Error');
-                        },
                         function(result){
                             booksService.getBooks().then(function(response){
                                 $scope.booksLists = response.data;
                             });
                             LxNotificationService.success('Livre supprimé');
+                        },
+                        function(result){
+                            LxNotificationService.error('Error');
                         }
                     );
                 }

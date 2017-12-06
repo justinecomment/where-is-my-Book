@@ -22,14 +22,12 @@ myApp.controller('addBookCtrl', function($scope, booksService, authorsService, $
             LxNotificationService.notify('Livre Ajouté', undefined, undefined, undefined, undefined, undefined, 2 * 1000);
        }
        else{
-           console.log('error');
            $scope.addBookForm.$valid = false;
        }
     };
 
     authorsService.getAuthors().then(function(result){
         $scope.authorsLists = result.data;
-        console.log($scope.authorsLists);
     });
 
 
