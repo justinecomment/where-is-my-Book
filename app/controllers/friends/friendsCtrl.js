@@ -5,6 +5,10 @@ myApp.controller('friendsCtrl', function($scope, LxNotificationService, friendsS
         $scope.friendsLists = result.data;
     });
 
+    $scope.editFriend = function(){
+       friendsService.saveFriend(this.friends);
+    }; 
+
 
     $scope.deleteFriend = function()
     {

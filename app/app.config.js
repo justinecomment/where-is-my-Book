@@ -24,21 +24,25 @@ myApp.config(['$routeProvider', function ($routeProvider) {
     controller: 'addAuthorCtrl',
     templateUrl: 'views/authors/addAuthor.html'
   })
-   .when('/editAuthor', {
+  .when('/editAuthor', {
     controller: 'editAuthorCtrl',
     templateUrl: 'views/authors/editAuthor.html'
   })
-   .when('/lendBook', {
+  .when('/lendBook', {
     controller: 'lendBookCtrl',
     templateUrl: 'views/books/lendBook.html'
   })
-   .when('/friends', {
+  .when('/friends', {
     controller: 'friendsCtrl',
     templateUrl: 'views/friends/friends.html'
   })
-   .when('/addFriend', {
+  .when('/addFriend', {
     controller: 'addFriendsCtrl',
     templateUrl: 'views/friends/addFriends.html'
+  })
+  .when('/editFriend', {
+    controller: 'editFriendCtrl',
+    templateUrl: 'views/friends/editFriends.html'
   })
    .otherwise({
     redirectTo: '/'

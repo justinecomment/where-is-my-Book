@@ -1,6 +1,16 @@
 myApp.service('friendsService', function($http){
     
     const baseUrl = 'http://localhost/whereIsMyBook-symfony/web/app_dev.php';
+    var friendSaved;
+
+    this.saveFriend= function(friend){
+       return friendSaved = friend;
+    };
+
+    this.getFriendSaved = function(){
+        return friendSaved;
+    };
+
 
     this.createAction = function(dataToPost){
         return $http({ 
@@ -31,16 +41,16 @@ myApp.service('friendsService', function($http){
         })
     };
 
-    // this.editAuthor= function(formData){
-    //      return $http({
-    //         method : 'PUT',
-    //         url : baseUrl + '/updateAuthor/' + formData.id,
-    //         data : formData,
-    //         headers: {
-    //             'Access-Control-Allow-Origin' : '*',
-    //             'Content-Type': 'application/json'
-    //         }
-    //     })
-    // }
+    this.updateAction= function(formData){
+        return $http({
+            method : 'PUT',
+            url : baseUrl + '/updateFriend/' + formData.id,
+            data : formData,
+            headers: {
+                'Access-Control-Allow-Origin' : '*',
+                'Content-Type': 'application/json'
+            }
+        })
+    };
 
 });
