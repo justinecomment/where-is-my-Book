@@ -1,12 +1,11 @@
 myApp.service('friendsService', function($http){
+    
     const baseUrl = 'http://localhost/whereIsMyBook-symfony/web/app_dev.php';
-
 
     this.createAction = function(dataToPost){
         return $http({ 
             method: 'POST', 
             url: baseUrl + '/addFriend', 
-            dataType: 'json', 
             data: dataToPost,
             headers: {
             'Content-Type': 'application/json'
@@ -14,23 +13,23 @@ myApp.service('friendsService', function($http){
         });
     };
 
-    this.getFriends = function(){
+    this.getAllAction = function(){
         return $http.get(baseUrl + '/listFriends').success(function(result){
             return result.data;
         })
     };
 
-    // this.deleteAuthor = function(index){
-    //     return $http({
-    //         method  : 'DELETE',
-    //         url: baseUrl + '/deleteAuthor/' + index,
-    //         data    : {"id":  index },
-    //         headers: {
-    //             'Access-Control-Allow-Origin' : '*',
-    //             'Content-Type': 'application/json'
-    //         }
-    //     })
-    // };
+    this.deleteAction = function(index){
+        return $http({
+            method  : 'DELETE',
+            url: baseUrl + '/deleteFriend/' + index,
+            data    : {"id":  index },
+            headers: {
+                'Access-Control-Allow-Origin' : '*',
+                'Content-Type': 'application/json'
+            }
+        })
+    };
 
     // this.editAuthor= function(formData){
     //      return $http({

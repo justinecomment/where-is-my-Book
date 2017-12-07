@@ -7,7 +7,7 @@ myApp.controller('addFriendsCtrl', function($scope, LxNotificationService, frien
                     'prenom': document.getElementById("prenom").value
                 };
                 friendsService.createAction(formData).then(function(result){
-                    friendsService.getFriends().then(function(result){
+                    friendsService.getAllAction().then(function(result){
                         $scope.friendsLists = result.data;
                     });               
                      $location.path('/friends');
