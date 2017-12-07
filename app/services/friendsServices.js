@@ -2,17 +2,17 @@ myApp.service('friendsService', function($http){
     const baseUrl = 'http://localhost/whereIsMyBook-symfony/web/app_dev.php';
 
 
-    // this.postFriends = function(dataToPost){
-    //     return $http({ 
-    //         method: 'POST', 
-    //         url: baseUrl + '/addAuthor', 
-    //         dataType: 'json', 
-    //         data: dataToPost,
-    //         headers: {
-    //         'Content-Type': 'application/json'
-    //         }
-    //     });
-    // };
+    this.createAction = function(dataToPost){
+        return $http({ 
+            method: 'POST', 
+            url: baseUrl + '/addFriend', 
+            dataType: 'json', 
+            data: dataToPost,
+            headers: {
+            'Content-Type': 'application/json'
+            }
+        });
+    };
 
     this.getFriends = function(){
         return $http.get(baseUrl + '/listFriends').success(function(result){

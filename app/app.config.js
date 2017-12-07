@@ -36,6 +36,10 @@ myApp.config(['$routeProvider', function ($routeProvider) {
     controller: 'friendsCtrl',
     templateUrl: 'views/friends/friends.html'
   })
+   .when('/addFriend', {
+    controller: 'addFriendsCtrl',
+    templateUrl: 'views/friends/addFriends.html'
+  })
    .otherwise({
     redirectTo: '/'
   });

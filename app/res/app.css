@@ -32,7 +32,7 @@ html, body{
     color: red;
 }
 
-.btnSaveBook, .btnSaveAuthor{
+.btnSaveBook, .btnSaveAuthor, .btnSaveFriend{
     margin-top: 40px !important;
 }
 
@@ -41,7 +41,7 @@ html, body{
     margin-top: 15px;
 }
 
-.formAuthors{
+.centerForm{
     width: 300px;
     margin: 0 auto;
 }

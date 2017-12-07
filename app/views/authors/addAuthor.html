@@ -1,7 +1,7 @@
 <div class="content">
 
     <form name="addAuthorForm" ng-submit="addAuthor()" novalidate>
-       <div class="formAuthors">
+       <div class="centerForm">
             <lx-text-field lx-label="Nom" lx-focus="true" lx-error="addAuthorForm.$submitted && addAuthorForm.nom.$pristine && addAuthorForm.nom.$error.required">
                 <input type="text" ng-model="nom" id="nom" name="nom" required />
             </lx-text-field>

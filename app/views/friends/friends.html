@@ -1,20 +1,34 @@
-<!--  <a href="#/addBook">
-    <lx-button lx-type="fab" lx-size="xl" class="btnAddBook" lx-ripple lx-tooltip="Ajouter un Livre" lx-tooltip-position="bottom" lx-color="green">
+<a href="#/addFriend">
+    <lx-button lx-type="fab" lx-size="xl" class="btnAddBook"  lx-ripple lx-tooltip="Ajouter un Ami" lx-tooltip-position="bottom">
         <i class="mdi mdi-plus"></i>
     </lx-button>
- </a>
- -->
+</a>
 
 <div class="content">
     <h1>Mes Amis</h1>
-
-    <table>
-        <tr ng-repeat="friends in friendsLists">
-            <td>{{friends.nom}} {{friends.prenom}}</td>
+    <table class="content table-hover table">
+        <tr>
+            <th hidden>id</th>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th></th>
+            <th></th>
+     
         </tr>
+        <tr ng-repeat="friends in friendsLists">
+            <td hidden>{{friends.id}}</td>
+            <td>{{friends.nom}}</td>
+            <td>{{friends.prenom}}</td>
+            <td ng-click="editFriend()">
+                <a href="#/editFriend" lx-ripple lx-tooltip="Editer" lx-tooltip-position="right">
+                    <lx-icon lx-id="pencil" lx-size="xs" lx-color="blue" lx-type="flat" id="edit" ></lx-icon>
+                </a>
+            </td>
+            <td ng-click="deleteFriend()">
+                <div lx-ripple lx-tooltip="Supprimer" lx-tooltip-position="right">
+                    <lx-icon lx-id="delete" lx-size="xs" lx-color="blue" lx-type="flat" id="delete"></lx-icon>
+                </div>
+            </td>
     </table>
 
-
-
-  
 </div>
